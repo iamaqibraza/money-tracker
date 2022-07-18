@@ -18,7 +18,7 @@ function App() {
 						<p
 							style={{
 								textAlign: "center",
-								marginTop: "5rem",
+								marginTop: "7rem",
 								fontSize: "1.3125rem",
 							}}
 						>
