@@ -15,15 +15,9 @@ function App() {
 				<Route
 					path="*"
 					element={
-						<p
-							style={{
-								textAlign: "center",
-								marginTop: "7rem",
-								fontSize: "1.3125rem",
-							}}
-						>
+						<h1 className="text-purple-800 text-3xl text-center mt-16 w-4/5 mx-auto font-medium">
 							404: Nothing found at this link.
-						</p>
+						</h1>
 					}
 				/>
 			</Routes>
