@@ -12,7 +12,7 @@ export default function Signup() {
 		console.log(password);
 		setDisplayName("");
 		setUsername("");
-		setUsername("");
+		setPassword("");
 	};
 
 	return (
@@ -30,6 +30,7 @@ export default function Signup() {
 					onChange={(e) => setDisplayName(e.target.value)}
 					value={displayName}
 					name="displayName"
+					required
 				/>
 			</div>
 
@@ -43,6 +44,7 @@ export default function Signup() {
 					type="text"
 					onChange={(e) => setUsername(e.target.value.trim())}
 					value={username}
+					required
 				/>
 			</div>
 
@@ -56,6 +58,7 @@ export default function Signup() {
 					onChange={(e) => setPassword(e.target.value.trim())}
 					value={password}
 					name="password"
+					required
 				/>
 			</div>
 			<button className="py-3 px-9 bg-purple-800 rounded text-white mt-8 font-medium hover:bg-purple-800/95 active:bg-purple-800 ">

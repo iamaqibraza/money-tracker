@@ -9,7 +9,7 @@ export default function Login() {
 		console.log(username);
 		console.log(password);
 		setUsername("");
-		setUsername("");
+		setPassword("");
 	};
 
 	return (
@@ -27,6 +27,7 @@ export default function Login() {
 					onChange={(e) => setUsername(e.target.value.trim())}
 					value={username}
 					name="username"
+					required
 				/>
 			</div>
 			<div className="flex flex-col justify-center mt-5">
@@ -39,6 +40,7 @@ export default function Login() {
 					onChange={(e) => setPassword(e.target.value.trim())}
 					value={password}
 					name="password"
+					required
 				/>
 			</div>
 			<button className="py-3 px-9 bg-purple-800 rounded text-white mt-8 font-medium hover:bg-purple-800/95 active:bg-purple-800 ">
