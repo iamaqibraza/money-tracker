@@ -19,7 +19,7 @@ export default function Login() {
 		>
 			<div className="flex flex-col justify-center">
 				<label className="mr-5" htmlFor="email">
-					email
+					Email
 				</label>
 				<input
 					className="border py-3 px-3 bg-slate-50 text-gray-500"
