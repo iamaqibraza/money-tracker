@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
@@ -7,7 +7,6 @@ import { useAuthContext } from "./hooks/useAuthContext";
 
 function App() {
 	const { authIsReady, user } = useAuthContext();
-	// const navigate = useNavigate();
 
 	return (
 		<div className="App">
@@ -18,11 +17,15 @@ function App() {
 						<Route path="/" element={user ? <Home /> : <Login />} />
 						<Route
 							path="/login"
-							element={user ? <Home /> : <Login />}
+							element={
+								user ? <Navigate to="/" replace /> : <Login />
+							}
 						/>
 						<Route
 							path="/Signup"
-							element={user ? <Home /> : <Signup />}
+							element={
+								user ? <Navigate to="/" replace /> : <Signup />
+							}
 						/>
 
 						{/* If route does not match, show the following. */}
