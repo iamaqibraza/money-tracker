@@ -10,8 +10,8 @@ export default function Navbar() {
 		logout,
 	} = useLogout();
 	return (
-		<div className="bg-purple-800 py-4 flex justify-between items-center px-4 md:px-16 lg:px-28 xl:px-44">
-			<h1 className="flex justify-between font-bold text-2xl text-white">
+		<div className="bg-purple-800 py-4 flex justify-between items-center px-4 md:px-16 lg:px-28 xl:px-44 ">
+			<h1 className="flex justify-between font-bold text-lg text-white sm:text-2xl">
 				<Link to="/">Money Tracker</Link>
 			</h1>
 			<div className="flex space-x-6 items-center">
@@ -35,9 +35,8 @@ export default function Navbar() {
 				{/* if user is signed in, then show the logout*/}
 				{user && (
 					<>
-						<span className="text-gray-100 capitalize">
-							{" "}
-							Hello, {user.displayName}
+						<span className="text-gray-200 capitalize">
+							Hi, {user.displayName.split(" ")[0]}
 						</span>
 						<button
 							onClick={() => logout()}
