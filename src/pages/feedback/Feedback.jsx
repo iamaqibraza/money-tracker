@@ -10,7 +10,8 @@ export default function Feedback() {
 
 	const onFormSubmit = async (e) => {
 		e.preventDefault();
-		sendEmail(name, email, contact, message);
+		// const templateParams = { name, email, contact, message };
+		sendEmail({ name, email, contact, message });
 	};
 
 	return (
