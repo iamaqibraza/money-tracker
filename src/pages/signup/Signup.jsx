@@ -20,7 +20,10 @@ export default function Signup() {
 				className="mt-28 max-w-xs mx-auto accent-purple-800"
 				onSubmit={onFormSubmit}
 			>
-				<div className="flex flex-col justify-center">
+				<h1 className="font-bold text-2xl text-gray-800">
+					Create an account
+				</h1>
+				<div className="flex flex-col justify-center mt-6">
 					<label className="mr-5" htmlFor="email">
 						Email
 					</label>
@@ -64,12 +67,12 @@ export default function Signup() {
 				{isPending ? (
 					<button
 						disabled
-						className="py-3 px-9 bg-purple-800 rounded text-white mt-8 font-medium hover:bg-purple-800/95 active:bg-purple-800 "
+						className="py-3 px-9 bg-purple-800 rounded text-white mt-9 font-medium hover:bg-purple-800/95 active:bg-purple-800 "
 					>
 						Loading ...
 					</button>
 				) : (
-					<button className="py-3 px-9 bg-purple-800 rounded text-white mt-8 font-medium hover:bg-purple-800/95 active:bg-purple-800 ">
+					<button className="py-3 px-9 bg-purple-800 rounded text-white mt-9 font-medium hover:bg-purple-800/95 active:bg-purple-800 ">
 						Sign up
 					</button>
 				)}

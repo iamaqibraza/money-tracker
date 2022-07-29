@@ -31,7 +31,7 @@ export default function Home() {
 
 	return (
 		<div className="flex flex-col items-center mt-16 md:flex-row md:items-start justify-between mx-auto px-4 md:px-16 lg:px-28 xl:px-44">
-			<TransactionForm uid={user.uid} />
+			<TransactionForm uid={user?.uid} />
 			<div className="md:order-first mt-16 md:mt-0">
 				<h1> Transaction List</h1>
 				<ul>

@@ -4,6 +4,7 @@ import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
 import Navbar from "./components/Navbar";
 import { useAuthContext } from "./hooks/useAuthContext";
+import Feedback from "./pages/feedback/Feedback";
 
 function App() {
 	const { authIsReady, user } = useAuthContext();
@@ -25,6 +26,17 @@ function App() {
 							path="/Signup"
 							element={
 								user ? <Navigate to="/" replace /> : <Signup />
+							}
+						/>
+
+						<Route
+							path="/feedback"
+							element={
+								user ? (
+									<Feedback />
+								) : (
+									<Navigate to="/login" replace />
+								)
 							}
 						/>
 

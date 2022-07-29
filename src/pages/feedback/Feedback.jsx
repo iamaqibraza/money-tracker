@@ -1,28 +1,43 @@
 import { useState } from "react";
-import { useLogin } from "../../hooks/useLogin";
+import { useEmail } from "../../hooks/useEmail";
 
-export default function Login() {
+export default function Feedback() {
+	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [contact, setContact] = useState("");
+	const [message, setMessage] = useState("");
+	const { isPending, error, sendEmail } = useEmail();
 
-	const { isPending, error, login } = useLogin();
-
-	const onFormSubmit = (e) => {
+	const onFormSubmit = async (e) => {
 		e.preventDefault();
-		login(email, password);
+		sendEmail(name, email, contact, message);
 	};
 
 	return (
 		<form
-			className="mt-28 max-w-xs mx-auto accent-purple-800"
+			className="mt-20 max-w-xs mx-auto accent-purple-800"
 			onSubmit={onFormSubmit}
 		>
 			<h1 className="font-bold text-2xl text-gray-800">
-				Login to your account
+				Provide Feedback
 			</h1>
 			<div className="flex flex-col justify-center mt-6">
+				<label className="mr-5" htmlFor="name">
+					Name:
+				</label>
+				<input
+					className="border py-3 px-3 bg-slate-50 text-gray-500"
+					type="text"
+					onChange={(e) => setName(e.target.value.trim())}
+					value={name}
+					name="name"
+					required
+				/>
+			</div>
+
+			<div className="flex flex-col justify-center mt-5">
 				<label className="mr-5" htmlFor="email">
-					Email
+					Email:
 				</label>
 				<input
 					className="border py-3 px-3 bg-slate-50 text-gray-500"
@@ -33,19 +48,36 @@ export default function Login() {
 					required
 				/>
 			</div>
+
 			<div className="flex flex-col justify-center mt-5">
-				<label className="mr-5" htmlFor="password">
-					Password
+				<label className="mr-5" htmlFor="contact">
+					Phone Number:
 				</label>
 				<input
 					className="border py-3 px-3 bg-slate-50 text-gray-500"
-					type="password"
-					onChange={(e) => setPassword(e.target.value.trim())}
-					value={password}
-					name="password"
+					type="contact"
+					onChange={(e) => setContact(e.target.value.trim())}
+					value={contact}
+					name="contact"
 					required
 				/>
 			</div>
+
+			<div className="flex flex-col justify-center mt-5">
+				<label className="mr-5" htmlFor="message">
+					Message:
+				</label>
+				<textarea
+					rows="4"
+					className="border py-3 px-3 bg-slate-50 text-gray-500"
+					type="text"
+					onChange={(e) => setMessage(e.target.value)}
+					value={message}
+					name="message"
+					required
+				/>
+			</div>
+
 			{isPending ? (
 				<button
 					disabled
@@ -55,7 +87,7 @@ export default function Login() {
 				</button>
 			) : (
 				<button className="py-3 px-9 bg-purple-800 rounded text-white mt-9 font-medium hover:bg-purple-800/95 active:bg-purple-800 ">
-					Login
+					Send Feedback
 				</button>
 			)}
 			{error && (
