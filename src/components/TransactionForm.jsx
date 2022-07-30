@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useFirestore, timestamp } from "../hooks/useFirestore";
+import { useFirestore } from "../hooks/useFirestore";
 
 export default function TransactionForm() {
 	const [transactionName, setTransactionName] = useState("");
@@ -20,7 +20,7 @@ export default function TransactionForm() {
 	}, [response]);
 
 	return (
-		<div className="max-w-sm text-slate-400 px-6 rounded-xl bg-slate-50 py-12 shadow-xl shadow-slate-200">
+		<div className="w-full lg:w-1/2 px-6 rounded-xl text-slate-400 py-12 border-2 border-slate-100">
 			<form onSubmit={handleSubmit}>
 				<h2 className="text-slate-600 font-semibold text-xl tracking-tight">
 					Add a Transaction
@@ -30,7 +30,7 @@ export default function TransactionForm() {
 					<label>
 						<span className="block"> Transaction Name: </span>
 						<input
-							className="p-2 mt-2 bg-slate-100 w-full"
+							className="p-2 mt-2 bg-slate-50 w-full"
 							type="text"
 							onChange={(e) => setTransactionName(e.target.value)}
 							value={transactionName}
@@ -42,7 +42,7 @@ export default function TransactionForm() {
 					<label>
 						<span className="block"> Amount($): </span>
 						<input
-							className="bg-slate-100 p-2 mt-2 w-full"
+							className="bg-slate-50 p-2 mt-2 w-full"
 							type="number"
 							onChange={(e) => setAmount(e.target.value)}
 							value={amount}

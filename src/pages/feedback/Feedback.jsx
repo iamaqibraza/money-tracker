@@ -6,12 +6,17 @@ export default function Feedback() {
 	const [email, setEmail] = useState("");
 	const [contact, setContact] = useState("");
 	const [message, setMessage] = useState("");
-	const { isPending, error, sendEmail } = useEmail();
+	const { isPending, error, success, sendEmail } = useEmail();
 
 	const onFormSubmit = async (e) => {
 		e.preventDefault();
-		// const templateParams = { name, email, contact, message };
 		sendEmail({ name, email, contact, message });
+		if (success) {
+			setName("");
+			setEmail("");
+			setContact("");
+			setMessage("");
+		}
 	};
 
 	return (

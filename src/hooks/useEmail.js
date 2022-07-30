@@ -4,6 +4,7 @@ import { useState } from "react";
 export const useEmail = () => {
 	const [isPending, setIsPending] = useState(false);
 	const [error, setError] = useState(null);
+	const [success, setSuccess] = useState(false);
 
 	const sendEmail = async (templateParamsObj) => {
 		const serviceID = process.env.REACT_APP_SERVICE_ID;
@@ -20,14 +21,17 @@ export const useEmail = () => {
 			);
 			console.log(res);
 			setIsPending(false);
+			if (res.text === "OK") {
+				setSuccess(true);
+			}
 			setError(null);
 			alert("Thank you for the feedback. We will get back to you soon.");
 		} catch (error) {
-			alert(error.message);
 			setIsPending(false);
 			setError(error.message);
+			alert("Something went wrong. Please try again later.");
 		}
 	};
 
-	return { isPending, error, sendEmail };
+	return { isPending, error, success, sendEmail };
 };
