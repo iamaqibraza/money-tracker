@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import { projectFirestore, timestamp } from "../firebase/config";
+import { useAuthContext } from "./useAuthContext";
 
 const firestoreReducer = (state, action) => {
 	switch (action.type) {
@@ -18,6 +19,15 @@ const firestoreReducer = (state, action) => {
 				error: null,
 				success: true,
 			};
+
+		case "DELETED_DOCUMENT":
+			return {
+				document: action.payload,
+				isPending: false,
+				error: null,
+				success: true,
+			};
+
 		case "ERROR":
 			return {
 				error: action.payload,
@@ -31,6 +41,7 @@ const firestoreReducer = (state, action) => {
 };
 
 export const useFirestore = (collection) => {
+	const { user } = useAuthContext();
 	const [response, dispatch] = useReducer(firestoreReducer, {
 		document: null,
 		isPending: false,
@@ -43,10 +54,14 @@ export const useFirestore = (collection) => {
 	//document creation timestamp
 	const createdAt = timestamp.fromDate(new Date());
 	//add a document to firestore
-	const addDocument = async ({ ...doc }) => {
+	const addDocument = async (doc) => {
 		try {
 			dispatch({ type: "PENDING" });
-			const addedDocument = await ref.add({ ...doc, createdAt });
+			const addedDocument = await ref.add({
+				...doc,
+				uid: user.uid,
+				createdAt,
+			});
 			dispatch({ type: "ADDED_DOCUMENT", payload: addedDocument });
 		} catch (error) {
 			dispatch({ type: "ERROR", payload: error.message });
@@ -55,7 +70,17 @@ export const useFirestore = (collection) => {
 
 	//delete a document from firestore
 
-	const deleteDocument = (id) => {};
+	const deleteDocument = async (id) => {
+		console.log(id);
+		try {
+			dispatch({ type: "PENDING" });
+			const deletedDocument = await ref.doc(id).delete();
+			console.log(deletedDocument);
+			dispatch({ type: "DELETED_DOCUMENT", payload: deletedDocument });
+		} catch (error) {
+			dispatch({ type: "ERROR", payload: error.message });
+		}
+	};
 
 	return { addDocument, deleteDocument, response };
 };

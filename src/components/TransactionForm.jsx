@@ -20,7 +20,7 @@ export default function TransactionForm() {
 	}, [response]);
 
 	return (
-		<div className="w-full lg:w-1/2 px-6 rounded-xl text-slate-400 py-12 border-2 border-slate-100">
+		<div className="w-full lg:w-1/2 px-6 rounded-md text-slate-400 py-12 border-2 border-slate-100">
 			<form onSubmit={handleSubmit}>
 				<h2 className="text-slate-600 font-semibold text-xl tracking-tight">
 					Add a Transaction
