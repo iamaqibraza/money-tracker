@@ -3,7 +3,7 @@ import React from "react";
 export default function TransactionList({ transactions }) {
 	console.log(transactions);
 	return (
-		<ul className="space-y-5 md:mr-8 lg:w-1/3">
+		<ul className="space-y-5 md:mr-8 lg:w-1/2">
 			{transactions.map((t) => {
 				return (
 					<li
