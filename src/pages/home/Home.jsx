@@ -18,7 +18,7 @@ export default function Home() {
 	return (
 		<>
 			{user && (
-				<div className="fixed bottom-10 left-0 flex justify-end pt-8 px-4 md:px-16 lg:px-28 xl:px-44">
+				<div className="fixed bottom-10 left-0 w-full flex justify-start pt-8 px-4 md:px-16 lg:px-28 xl:px-44">
 					<Tooltip tooltipMessage="Feedback">
 						<Link to="/feedback">
 							<svg
