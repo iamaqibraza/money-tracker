@@ -10,7 +10,7 @@ function App() {
 	const { authIsReady, user } = useAuthContext();
 
 	return (
-		<div className="App">
+		<div className="App bg-gray-900 min-h-screen">
 			{authIsReady && (
 				<BrowserRouter>
 					<Navbar />
@@ -44,7 +44,7 @@ function App() {
 						<Route
 							path="*"
 							element={
-								<h1 className="text-purple-800 text-3xl text-center mt-16 w-4/5 mx-auto font-medium">
+								<h1 className="mt-40 text-red-600 text-xl text-center w-4/5 mx-auto tracking-wide">
 									404: Nothing found at this link.
 								</h1>
 							}

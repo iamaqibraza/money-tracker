@@ -11,7 +11,7 @@ export default function Navbar() {
 		logout,
 	} = useLogout();
 	return (
-		<div className="bg-purple-800 py-4 flex justify-between items-center px-4 md:px-16 lg:px-28 xl:px-44 ">
+		<div className="bg-gray-800 py-4 flex justify-between items-center px-4 md:px-16 lg:px-28 xl:px-44 ">
 			<div className="flex items-center">
 				<h1 className="flex justify-between font-bold text-lg text-white sm:text-2xl mr-4">
 					<Link to="/">Money Tracker</Link>
@@ -43,14 +43,14 @@ export default function Navbar() {
 				{!user && (
 					<>
 						<Link
-							className="text-gray-100 font-medium hover:text-white active:text-gray-100"
+							className="text-gray-400 font-medium hover:text-white active:text-gray-200"
 							to="/login"
 						>
 							Login
 						</Link>
 						<Link
 							to="/signup"
-							className="text-gray-100 font-medium py-2 px-4 bg-white/30 rounded hover:bg-white active:bg-white/95 hover:text-purple-800"
+							className="font-medium py-2 px-4 rounded text-gray-50 bg-blue-700 hover:bg-blue-600 active:bg-blue-800"
 						>
 							<span className="opacity-100">Sign up</span>
 						</Link>
@@ -59,12 +59,12 @@ export default function Navbar() {
 				{/* if user is signed in, then show the logout*/}
 				{user && (
 					<>
-						<span className="text-gray-200 capitalize">
+						<span className="text-gray-400 capitalize">
 							Hi, {user.displayName.split(" ")[0]}
 						</span>
 						<button
 							onClick={() => logout()}
-							className="text-gray-50 font-medium py-2 px-4 bg-red-700 rounded active:bg-red-600 hover:bg-red-500 "
+							className="text-gray-50 font-medium py-2 px-4 bg-red-800 rounded hover:bg-red-700 active:bg-red-900"
 						>
 							Logout
 						</button>

@@ -20,17 +20,20 @@ export default function TransactionForm() {
 	}, [response]);
 
 	return (
-		<div className="w-full lg:w-1/2 px-6 rounded-md text-slate-400 py-12 border-2 border-slate-100">
-			<form onSubmit={handleSubmit}>
-				<h2 className="text-slate-600 font-semibold text-xl tracking-tight">
-					Add a Transaction
-				</h2>
+		<div className="w-full lg:w-1/2 px-6 rounded-md text-slate-400 py-12 bg-gray-800">
+			<form
+				onSubmit={handleSubmit}
+				className="accent-blue-600 text-gray-50"
+			>
+				<h2 className="tracking-tight text-2xl">Add a Transaction</h2>
 
-				<div className="mt-6">
+				<div className="mt-8">
 					<label>
-						<span className="block"> Transaction Name: </span>
+						<span className="block text-gray-400">
+							Transaction Name:
+						</span>
 						<input
-							className="p-2 mt-2 bg-slate-50 w-full"
+							className="p-3 mt-2 w-full bg-gray-700 rounded"
 							type="text"
 							onChange={(e) => setTransactionName(e.target.value)}
 							value={transactionName}
@@ -40,10 +43,11 @@ export default function TransactionForm() {
 
 				<div className="mt-4">
 					<label>
-						<span className="block"> Amount($): </span>
+						<span className="block text-gray-400">Amount ($):</span>
 						<input
-							className="bg-slate-50 p-2 mt-2 w-full"
-							type="number"
+							className="p-3 mt-2 w-full bg-gray-700 rounded"
+							type="text"
+							inputMode="numeric"
 							onChange={(e) => setAmount(e.target.value)}
 							value={amount}
 						/>
@@ -53,14 +57,14 @@ export default function TransactionForm() {
 					<button
 						disabled
 						type="submit"
-						className="text-gray-100 font-medium py-2 px-4 rounded bg-purple-800 hover:bg-purple-700 active:bg-purple-800 mt-8"
+						className="font-medium mt-8 py-2 px-4 rounded bg-blue-700 hover:bg-blue-600 active:bg-blue-800"
 					>
 						Loading ...
 					</button>
 				) : (
 					<button
 						type="submit"
-						className="text-gray-100 font-medium py-2 px-4 rounded bg-purple-800 hover:bg-purple-700 active:bg-purple-800 mt-8"
+						className="font-medium mt-8 py-2 px-4 rounded bg-blue-700 hover:bg-blue-600 active:bg-blue-800"
 					>
 						Add Transaction
 					</button>

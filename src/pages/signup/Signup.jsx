@@ -17,18 +17,16 @@ export default function Signup() {
 	return (
 		<>
 			<form
-				className="mt-28 max-w-xs mx-auto accent-purple-800"
+				className="mt-40 mx-4 sm:mx-auto sm:max-w-sm rounded-md px-6 py-12 accent-blue-600 bg-gray-800 text-gray-50"
 				onSubmit={onFormSubmit}
 			>
-				<h1 className="font-bold text-2xl text-gray-800">
-					Create an account
-				</h1>
-				<div className="flex flex-col justify-center mt-6">
-					<label className="mr-5" htmlFor="email">
+				<h1 className="tracking-tight text-2xl">Create an account</h1>
+				<div className="flex flex-col justify-center mt-8 space-y-2">
+					<label className="mr-5 text-gray-400" htmlFor="email">
 						Email
 					</label>
 					<input
-						className="border py-3 px-3 bg-slate-50 text-gray-500"
+						className="py-3 px-3 bg-gray-700 rounded"
 						name="email"
 						type="text"
 						onChange={(e) => setEmail(e.target.value.trim())}
@@ -36,12 +34,12 @@ export default function Signup() {
 						required
 					/>
 				</div>
-				<div className="flex flex-col justify-center mt-5">
-					<label className="mr-5" htmlFor="password">
+				<div className="flex flex-col justify-center mt-5 space-y-2">
+					<label className="mr-5 text-gray-400" htmlFor="password">
 						Password
 					</label>
 					<input
-						className="border py-3 px-3 bg-slate-50 text-gray-500"
+						className="p-3 bg-gray-700 rounded"
 						type="password"
 						onChange={(e) => setPassword(e.target.value.trim())}
 						value={password}
@@ -50,12 +48,12 @@ export default function Signup() {
 					/>
 				</div>
 
-				<div className="flex flex-col justify-center mt-5">
-					<label className="mr-5" htmlFor="displayName">
+				<div className="flex flex-col justify-center mt-5 space-y-2">
+					<label className="mr-5 text-gray-400" htmlFor="displayName">
 						Display Name
 					</label>
 					<input
-						className="border py-3 px-3 bg-slate-50 text-gray-500"
+						className="p-3 bg-gray-700 rounded"
 						type="text"
 						onChange={(e) => setDisplayName(e.target.value)}
 						value={displayName}
@@ -67,18 +65,18 @@ export default function Signup() {
 				{isPending ? (
 					<button
 						disabled
-						className="py-3 px-9 bg-purple-800 rounded text-white mt-9 font-medium hover:bg-purple-800/95 active:bg-purple-800 "
+						className="py-3 px-9 rounded mt-9 font-medium bg-blue-700 hover:bg-blue-600 active:bg-blue-800"
 					>
 						Loading ...
 					</button>
 				) : (
-					<button className="py-3 px-9 bg-purple-800 rounded text-white mt-9 font-medium hover:bg-purple-800/95 active:bg-purple-800 ">
+					<button className="py-3 px-9 rounded mt-9 font-medium bg-blue-700 hover:bg-blue-600 active:bg-blue-800">
 						Sign up
 					</button>
 				)}
 
 				{error && (
-					<div className="flex space-x-2 mt-12 text-red-500">
+					<div className="flex space-x-2 mt-7 text-red-500">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							className="h-6 w-6"
@@ -93,7 +91,7 @@ export default function Signup() {
 								d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
 							/>
 						</svg>
-						<p className="text-sm font-medium">{error}</p>
+						<p className="text-sm">{error}</p>
 					</div>
 				)}
 			</form>

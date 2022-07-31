@@ -6,7 +6,7 @@ export const Tooltip = ({ tooltipMessage, children }) => {
 				<span className="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-purple-400 shadow-lg rounded-md">
 					{tooltipMessage}
 				</span>
-				<div className="w-3 h-3 -mt-2 rotate-45 bg-purple-400"></div>
+				<div className="w-3 h-3 -mt-2 rotate-45 bg-blue-600"></div>
 			</div>
 		</div>
 	);
