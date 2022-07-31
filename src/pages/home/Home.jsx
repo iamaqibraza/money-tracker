@@ -17,6 +17,18 @@ export default function Home() {
 	);
 	return (
 		<>
+			<div className="flex flex-col items-center mt-16 md:flex-row md:items-start justify-between mx-auto px-4 md:px-16 lg:px-28 xl:px-44">
+				<TransactionForm />
+				<div className="md:order-first mt-16 md:mt-0 w-full">
+					{error && <h3>{error}</h3>}
+					{transactions && (
+						<TransactionList
+							transactions={transactions}
+							isPending={isPending}
+						/>
+					)}
+				</div>
+			</div>
 			{user && (
 				<div className="fixed bottom-10 left-0 w-full flex justify-start pt-8 px-4 md:px-16 lg:px-28 xl:px-44">
 					<Tooltip tooltipMessage="Feedback">
@@ -39,18 +51,6 @@ export default function Home() {
 					</Tooltip>
 				</div>
 			)}
-			<div className="flex flex-col items-center mt-16 md:flex-row md:items-start justify-between mx-auto px-4 md:px-16 lg:px-28 xl:px-44">
-				<TransactionForm />
-				<div className="md:order-first mt-16 md:mt-0 w-full">
-					{error && <h3>{error}</h3>}
-					{transactions && (
-						<TransactionList
-							transactions={transactions}
-							isPending={isPending}
-						/>
-					)}
-				</div>
-			</div>
 		</>
 	);
 }

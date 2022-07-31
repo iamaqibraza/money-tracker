@@ -23,7 +23,7 @@ export default function TransactionList({ transactions, isPending }) {
 						<p className="text-slate-400 font-medium">
 							${t.amount}
 						</p>
-						<h2 className="text-gray-100 font-semibold text-xl tracking-tight uppercase">
+						<h2 className="text-gray-100 font-medium text-lg tracking-wider uppercase">
 							{t.transactionName}
 						</h2>
 
